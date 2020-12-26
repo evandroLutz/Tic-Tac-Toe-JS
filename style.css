@@ -10,4 +10,21 @@
     background-color: darkseagreen;
     border: 1px solid #000000;
     display: inline-block;
+    cursor: pointer;
+}
+
+.square .x,
+.square .o{
+    padding: 0px 7%;
+    font-size: 136px;
+    font-family: cursive;
+    position: absolute;
+}
+
+.square .x{
+    display: none;
+}
+
+.square .o{
+    display: none;
 }
