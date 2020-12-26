@@ -25,19 +25,35 @@
 
 .square .x.show,
 .square .o.show,
-button.show{
+button.show,
+.result.show{
     display: block;
 }
 
-button{
-    font-size: 16px;
-    background: green;
+button,.result{
     color: white;
     font-family: system-ui;
+}
+
+button{    
+    background: green;
+    font-size: 16px;
     width: 200px;
     height: 40px;
     border: none;
     margin-top: 20px;
     display: none;
     cursor: pointer;
+    float: left;
+}
+
+.result{
+    display: none;
+    text-align: center;
+    background-color: darkgrey;
+    font-size: 34px;
+    width: 530px;
+    height: 68px;
+    float: left;
+    margin: 10px 68px;
 }

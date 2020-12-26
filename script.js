@@ -38,6 +38,9 @@ function togglePlayerChar(char,square){
         freeSquares--;
         if(freeSquares === 0){
             document.querySelector('button').classList.add('show');
+            const result = document.querySelector('.result');
+            result.classList.add('show');
+            result.textContent = `ninguém venceu!!! :/`;
         }
     }
 }
@@ -55,9 +58,12 @@ function checkWin(char){
     });
     winGrade.forEach((possibility)=>{
         if(JSON.stringify(charSquares)==JSON.stringify(possibility)){
-            console.log(`${char} winner`);
             winner = true;
-            document.querySelector('button').classList.add('show');
+            const button = document.querySelector('button');
+            button.classList.add('show');
+            const result = document.querySelector('.result');
+            result.classList.add('show');
+            result.textContent = `${char} é o vencedor!!!`;
         }
     })
 }
