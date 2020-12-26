@@ -20,12 +20,10 @@
     font-size: 136px;
     font-family: cursive;
     position: absolute;
-}
-
-.square .x{
     display: none;
 }
 
-.square .o{
-    display: none;
+.square .x.show,
+.square .o.show{
+    display: block;
 }
