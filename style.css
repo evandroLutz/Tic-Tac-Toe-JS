@@ -11,11 +11,12 @@
     border: 1px solid #000000;
     display: inline-block;
     cursor: pointer;
+    position: relative;
 }
 
 .square .x,
 .square .o{
-    padding: 0px 7%;
+    padding: 0px 25%;
     font-size: 136px;
     font-family: cursive;
     position: absolute;
