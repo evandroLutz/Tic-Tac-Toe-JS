@@ -2,7 +2,7 @@ let turnPlayer = 0;
 let winner = false;
 let freeSquares = 9;
 
-const winGrade = [
+const winGrades = [
    ['0', '1', '2'],
    ['3', '4', '5'],
    ['6','7','8'],
@@ -36,7 +36,7 @@ function togglePlayerChar(char,square){
         turnPlayer++;
         checkWin(char);
         freeSquares--;
-        if(freeSquares === 0){
+        if(freeSquares === 0 && !winner){
             document.querySelector('button').classList.add('show');
             const result = document.querySelector('.result');
             result.classList.add('show');
@@ -56,15 +56,17 @@ function checkWin(char){
     charShoweds.forEach((charShowed)=>{
        charSquares.push(charShowed.parentNode.id);
     });
-    winGrade.forEach((possibility)=>{
-        if(JSON.stringify(charSquares)==JSON.stringify(possibility)){
-            winner = true;
-            const button = document.querySelector('button');
-            button.classList.add('show');
-            const result = document.querySelector('.result');
-            result.classList.add('show');
-            result.textContent = `${char} é o vencedor!!!`;
-        }
+    winGrades.forEach((winGrade)=>{
+            if(charSquares.includes(winGrade[0]) 
+                 && charSquares.includes(winGrade[1]) 
+                 && charSquares.includes(winGrade[2])){
+                winner = true;
+                const button = document.querySelector('button');
+                button.classList.add('show');
+                const result = document.querySelector('.result');
+                result.classList.add('show');
+                result.textContent = `${char} é o vencedor!!!`;  
+            }        
     })
 }
 
