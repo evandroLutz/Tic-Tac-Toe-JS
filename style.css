@@ -1,0 +1,13 @@
+.container{
+    width: 800px;
+    height: 600px;
+    background-color: darkgrey;
+}
+
+.container .square{
+    width: 262px;
+    height: 195px;
+    background-color: darkseagreen;
+    border: 1px solid #000000;
+    display: inline-block;
+}
