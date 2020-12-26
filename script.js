@@ -1,6 +1,6 @@
 let turnPlayer = 0;
-
 let winner = false;
+let freeSquares = 9;
 
 const winGrade = [
    ['0', '1', '2'],
@@ -35,7 +35,11 @@ function togglePlayerChar(char,square){
         turnChar.classList.add('show');
         turnPlayer++;
         checkWin(char);
-    }    
+        freeSquares--;
+        if(freeSquares === 0){
+            document.querySelector('button').classList.add('show');
+        }
+    }
 }
 
 function checkAlreadyFilled(square){
@@ -53,6 +57,27 @@ function checkWin(char){
         if(JSON.stringify(charSquares)==JSON.stringify(possibility)){
             console.log(`${char} winner`);
             winner = true;
+            document.querySelector('button').classList.add('show');
         }
     })
 }
+
+function newGame(){
+   const squaresToClean =  document.querySelectorAll('.show');
+   squaresToClean.forEach((square)=>{
+       square.classList.remove('show');
+   })
+  turnPlayer = 0;
+  winner = false;
+  freeSquares = 9;
+}
+
+function newGameOnButton(){
+    document.querySelector('button').addEventListener('click',()=>{
+        newGame();
+    });
+}
+
+listenerToggleOnSquares();
+newGameOnButton();
+
