@@ -57,3 +57,7 @@ button{
     float: left;
     margin: 10px 68px;
 }
+
+.winner{
+    color: green;
+}
