@@ -65,8 +65,16 @@ function checkWin(char){
                 button.classList.add('show');
                 const result = document.querySelector('.result');
                 result.classList.add('show');
-                result.textContent = `${char} é o vencedor!!!`;  
+                result.textContent = `${char} é o vencedor!!!`;
+                colorizeCharsWin(winGrade);  
             }        
+    })
+}
+
+function colorizeCharsWin(ids){
+    ids.forEach((id)=>{
+        const squareWinner = document.getElementById(`${id}`);
+        squareWinner.classList.add('winner');
     })
 }
 
@@ -75,6 +83,11 @@ function newGame(){
    squaresToClean.forEach((square)=>{
        square.classList.remove('show');
    })
+   const squaresWinnerToClean =  document.querySelectorAll('.winner');
+   squaresWinnerToClean.forEach((square)=>{
+       square.classList.remove('winner');
+   })
+
   turnPlayer = 0;
   winner = false;
   freeSquares = 9;
